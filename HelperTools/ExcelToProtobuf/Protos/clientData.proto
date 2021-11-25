@@ -1,0 +1,12 @@
+syntax = "proto3"; 
+option optimize_for = LITE_RUNTIME;
+
+message st_main_menu_data {
+	sint32	ID	=	1;
+	string	Name	=	2;
+	sint32	Sort	=	3;
+}
+
+message st_main_menu_config {
+	repeated st_main_menu_data datas = 1;
+}
