@@ -77,6 +77,7 @@
     <Compile Include="Assets\_3rd\_FingerGesture\Editor\FingerGestures\SwipeRecognizerInspector.cs" />
     <Compile Include="Assets\_3rd\_FingerGesture\Editor\FingerGestures\TapRecognizerInspector.cs" />
     <Compile Include="Assets\_3rd\_FingerGesture\Editor\FingerGestures\TwistRecognizerInspector.cs" />
+    <Compile Include="Assets\_Scripts\_Common\_UIMgrModule\Editor\UIViewEditor.cs" />
     <Reference Include="Unity.PackageManagerUI.Editor">
       <HintPath>E:/UnityDemo/EliminateGame/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
