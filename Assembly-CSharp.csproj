@@ -97,6 +97,7 @@
     <Compile Include="Assets\_3rd\_FingerGesture\FingerGestures\Scripts\Toolbox\TBTwistToRotate.cs" />
     <Compile Include="Assets\_Scripts\_Common\_Singleton\MonoSingle.cs" />
     <Compile Include="Assets\_Scripts\_Common\_Singleton\Singleton.cs" />
+    <Compile Include="Assets\_Scripts\_Common\_UIMgrModule\_Editor\UIViewEditor.cs" />
     <Compile Include="Assets\_Scripts\_Common\_UIMgrModule\IShowView.cs" />
     <Compile Include="Assets\_Scripts\_Common\_UIMgrModule\UIMgr.cs" />
     <Compile Include="Assets\_Scripts\_Common\_UIMgrModule\UIPathConfig.cs" />
