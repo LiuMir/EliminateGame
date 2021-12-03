@@ -103,6 +103,7 @@
     <Compile Include="Assets\_Scripts\_Common\_UIMgrModule\UIView.cs" />
     <Compile Include="Assets\_Scripts\_Common\AutoCanvasScaler.cs" />
     <Compile Include="Assets\_Scripts\_Common\CommonConfig.cs" />
+    <Compile Include="Assets\_Scripts\_Common\CustomInstanceGameObject.cs" />
     <Compile Include="Assets\_Scripts\_Common\DataReadBase.cs" />
     <Compile Include="Assets\_Scripts\_Common\StaticSceneObj.cs" />
     <Compile Include="Assets\_Scripts\_Common\UIHelper.cs" />
