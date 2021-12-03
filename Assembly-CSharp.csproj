@@ -107,7 +107,10 @@
     <Compile Include="Assets\_Scripts\_Common\StaticSceneObj.cs" />
     <Compile Include="Assets\_Scripts\_Common\UIHelper.cs" />
     <Compile Include="Assets\_Scripts\_GameConfig\MainMenuData.cs" />
+    <Compile Include="Assets\_Scripts\_GameLogic\_UI\MainUIView.cs" />
+    <Compile Include="Assets\_Scripts\_GameLogic\_UI\SelectHeroUIView.cs" />
     <Compile Include="Assets\_Scripts\_GameLogic\FingerGestureMgr.cs" />
+    <Compile Include="Assets\_Scripts\_GameLogic\MainEnter.cs" />
     <Compile Include="Assets\Delete\_GameLogic_1\LoginView.cs" />
     <Compile Include="Assets\Delete\_GameLogic_1\Main.cs" />
     <Compile Include="Assets\Delete\_GameLogic_1\MainView.cs" />

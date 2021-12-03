@@ -11,8 +11,8 @@ public class UIConfig
 public class UIPathConfig
 {
     private static readonly Dictionary<string, UIConfig> UIConfigList = new Dictionary<string, UIConfig> {
-        {"MainUI", new UIConfig {Path = "_Res/_UIPrefabs/MainUI", RealUIViewType = typeof(MainView) } },
-        {"LoginUI", new UIConfig {Path = "_Res/_UIPrefabs/LoginUI", RealUIViewType = typeof(LoginView) } },
+        {"MainUI", new UIConfig {Path = "_Res/_UIPrefabs/MainUI", RealUIViewType = typeof(MainUIView) } },
+        {"SelectHeroUI", new UIConfig {Path = "_Res/_UIPrefabs/SelectHeroUI", RealUIViewType = typeof(SelectHeroUIView) } },
     };
 
     // 获取UI配置
