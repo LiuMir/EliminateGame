@@ -1,6 +1,15 @@
 syntax = "proto3"; 
 option optimize_for = LITE_RUNTIME;
 
+message st_hero_basic_data {
+	sint32	ID	=	1;
+	string	Name	=	2;
+	sint32	Sort	=	3;
+}
+
+message st_hero_basic_config {
+	repeated st_hero_basic_data datas = 1;
+}
 message st_main_menu_data {
 	sint32	ID	=	1;
 	string	Name	=	2;
