@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 2270089597103514758}
   - component: {fileID: 7613204300321766252}
   m_Layer: 5
-  m_Name: BtnClose
+  m_Name: rd_BtnNext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -315,6 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3201851592562151201}
   - component: {fileID: 7900045425567203049}
+  - component: {fileID: 5877486572153863241}
   m_Layer: 5
   m_Name: SelectHeroUI
   m_TagString: Untagged
@@ -361,6 +362,30 @@ MonoBehaviour:
   WindowLayer: 1
   Canvas: {fileID: 0}
   ParentObj: {fileID: 0}
+--- !u!114 &5877486572153863241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3201851592562151202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ebacfeded54bf4d858a1b25e858103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAddTransformPosMark: 0
+  nodes:
+    keys:
+    - rd_BtnNext
+    - rd_BookmarkList
+    - rd_Content
+    - rd_BtnNext
+    values:
+    - {fileID: 3201851593059163014}
+    - {fileID: 3201851593570429041}
+    - {fileID: 3201851592863176180}
+    - {fileID: 2275820847572550726}
 --- !u!1 &3201851592698110856
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +398,7 @@ GameObject:
   - component: {fileID: 3201851592698110861}
   - component: {fileID: 3201851592698110862}
   m_Layer: 5
-  m_Name: Text
+  m_Name: rd_txtName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -606,7 +631,7 @@ GameObject:
   - component: {fileID: 470954597425281552}
   - component: {fileID: 1407702181387559062}
   m_Layer: 5
-  m_Name: Content
+  m_Name: rd_Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -694,6 +719,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3201851593011042582}
   - component: {fileID: 3201851593011042581}
+  - component: {fileID: 9152724335284014180}
   m_Layer: 5
   m_Name: Toggle
   m_TagString: Untagged
@@ -768,6 +794,24 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 1
+--- !u!114 &9152724335284014180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3201851593011042583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ebacfeded54bf4d858a1b25e858103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAddTransformPosMark: 0
+  nodes:
+    keys:
+    - rd_Name
+    values:
+    - {fileID: 3201851592698110856}
 --- !u!1 &3201851593059163014
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,7 +825,7 @@ GameObject:
   - component: {fileID: 3201851593059163019}
   - component: {fileID: 3201851593059163012}
   m_Layer: 5
-  m_Name: BtnNext
+  m_Name: rd_BtnNext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1062,7 +1106,7 @@ GameObject:
   - component: {fileID: 3201851593570429046}
   - component: {fileID: 231890666741361964}
   m_Layer: 5
-  m_Name: BookmarkList
+  m_Name: rd_BookmarkList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1186,6 +1230,7 @@ GameObject:
   - component: {fileID: 7349041584144557726}
   - component: {fileID: 2244596372308629240}
   - component: {fileID: 1636392103683576812}
+  - component: {fileID: 667635216732755140}
   m_Layer: 5
   m_Name: Cell
   m_TagString: Untagged
@@ -1250,6 +1295,22 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &667635216732755140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5612193186685284695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ebacfeded54bf4d858a1b25e858103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAddTransformPosMark: 0
+  nodes:
+    keys: []
+    values: []
 --- !u!1 &6056667388439704655
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,7 +1323,7 @@ GameObject:
   - component: {fileID: 8584481347797999786}
   - component: {fileID: 7767103274169695443}
   m_Layer: 5
-  m_Name: Name
+  m_Name: rd_txtName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

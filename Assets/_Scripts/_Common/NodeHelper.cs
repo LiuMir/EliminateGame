@@ -41,7 +41,7 @@ public class NodeHelper : MonoBehaviour
                     nodes.AddKeyAndValue(node.name, node.gameObject);
                 }
             }
-            if (node.GetComponent<NodeHelper>() != null || node.GetComponent("LuaMono") != null)
+            if (node.GetComponent<NodeHelper>() != null)
             {
                 continue;
             }
