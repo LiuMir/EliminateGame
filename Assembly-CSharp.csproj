@@ -105,8 +105,10 @@
     <Compile Include="Assets\_Scripts\_Common\CommonConfig.cs" />
     <Compile Include="Assets\_Scripts\_Common\CustomInstanceGameObject.cs" />
     <Compile Include="Assets\_Scripts\_Common\DataReadBase.cs" />
+    <Compile Include="Assets\_Scripts\_Common\NodeHelper.cs" />
+    <Compile Include="Assets\_Scripts\_Common\SerializableDictionary.cs" />
     <Compile Include="Assets\_Scripts\_Common\StaticSceneObj.cs" />
-    <Compile Include="Assets\_Scripts\_Common\UIHelper.cs" />
+    <Compile Include="Assets\_Scripts\_Common\TransformPosMark.cs" />
     <Compile Include="Assets\_Scripts\_GameConfig\MainMenuData.cs" />
     <Compile Include="Assets\_Scripts\_GameLogic\_UI\MainUIView.cs" />
     <Compile Include="Assets\_Scripts\_GameLogic\_UI\SelectHeroUIView.cs" />
