@@ -33,6 +33,7 @@ public class SerializableDictionary<TKey, TValue>: Dictionary<TKey, TValue>, ISe
     {
         keys.Add(key);
         values.Add(value);
+        Add(key, value);
     }
 }
 

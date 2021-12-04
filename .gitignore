@@ -5,3 +5,8 @@ obj
 .git
 .vs
 ProjectSettings
+.vscode
+Resources
+UserSettings
+Packages
+Resources.meta

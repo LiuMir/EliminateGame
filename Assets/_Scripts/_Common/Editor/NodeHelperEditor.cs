@@ -13,5 +13,9 @@ public class NodeHelperEditor : Editor
             nodeHelper.RefreshRdNodeList();
             serializedObject.ApplyModifiedProperties();
         }
+        if (GUI.changed)
+        {
+            EditorUtility.SetDirty(target);
+        }
     }
 }
