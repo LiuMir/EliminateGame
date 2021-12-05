@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class SelectHeroUIView : BaseUI
 {
     private Button btnClose;
+    private NodeHelper rootNodeHelper;
     public override void Awake()
     {
         base.Awake();
-        btnClose = this.viewMono.transform.Find("BtnClose").GetComponent<Button>();
+        rootNodeHelper = viewMono.GetComponent<NodeHelper>();
+        btnClose = rootNodeHelper.GetNode("rd_BtnClose").GetComponent<Button>();
     }
 
     public override void OnEnable()
