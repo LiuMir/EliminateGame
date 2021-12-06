@@ -1,1 +1,1 @@
-{ "datas": [ { "ID": 1, "Name": "任务", "Sort": 1 }, { "ID": 2, "Name": "祭灵", "Sort": 2 }, { "ID": 3, "Name": "冒险", "Sort": 3 }, { "ID": 4, "Name": "英雄", "Sort": 4 }, { "ID": 5, "Name": "活动", "Sort": 5 } ] }
+{ "datas": [ { "ID": 1, "Name": "小墨", "Group": 1 }, { "ID": 2, "Name": "小海", "Group": 2 }, { "ID": 3, "Name": "小萍", "Group": 2 }, { "ID": 4, "Name": "小生", "Group": 3 }, { "ID": 5, "Name": "小权", "Group": 4 }, { "ID": 6, "Name": "小帅", "Group": 4 } ] }

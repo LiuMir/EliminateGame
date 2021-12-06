@@ -22,18 +22,23 @@ public static partial class ClientDataReflection {
   static ClientDataReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "ChBjbGllbnREYXRhLnByb3RvIjwKEnN0X2hlcm9fYmFzaWNfZGF0YRIKCgJJ",
-          "RBgBIAEoERIMCgROYW1lGAIgASgJEgwKBFNvcnQYAyABKBEiOgoUc3RfaGVy",
-          "b19iYXNpY19jb25maWcSIgoFZGF0YXMYASADKAsyEy5zdF9oZXJvX2Jhc2lj",
-          "X2RhdGEiOwoRc3RfbWFpbl9tZW51X2RhdGESCgoCSUQYASABKBESDAoETmFt",
-          "ZRgCIAEoCRIMCgRTb3J0GAMgASgRIjgKE3N0X21haW5fbWVudV9jb25maWcS",
-          "IQoFZGF0YXMYASADKAsyEi5zdF9tYWluX21lbnVfZGF0YUICSANiBnByb3Rv",
-          "Mw=="));
+          "ChBjbGllbnREYXRhLnByb3RvIj0KEnN0X2hlcm9fYmFzaWNfZGF0YRIKCgJJ",
+          "RBgBIAEoERIMCgROYW1lGAIgASgJEg0KBUdyb3VwGAMgASgRIjoKFHN0X2hl",
+          "cm9fYmFzaWNfY29uZmlnEiIKBWRhdGFzGAEgAygLMhMuc3RfaGVyb19iYXNp",
+          "Y19kYXRhIkMKGHN0X2hlcm9fYmFzaWNfZ3JvdXBfZGF0YRIKCgJJRBgBIAEo",
+          "ERIMCgROYW1lGAIgASgJEg0KBUdyb3VwGAMgASgRIkYKGnN0X2hlcm9fYmFz",
+          "aWNfZ3JvdXBfY29uZmlnEigKBWRhdGFzGAEgAygLMhkuc3RfaGVyb19iYXNp",
+          "Y19ncm91cF9kYXRhIjsKEXN0X21haW5fbWVudV9kYXRhEgoKAklEGAEgASgR",
+          "EgwKBE5hbWUYAiABKAkSDAoEU29ydBgDIAEoESI4ChNzdF9tYWluX21lbnVf",
+          "Y29uZmlnEiEKBWRhdGFzGAEgAygLMhIuc3RfbWFpbl9tZW51X2RhdGFCAkgD",
+          "YgZwcm90bzM="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-          new pbr::GeneratedClrTypeInfo(typeof(global::st_hero_basic_data), global::st_hero_basic_data.Parser, new[]{ "ID", "Name", "Sort" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::st_hero_basic_data), global::st_hero_basic_data.Parser, new[]{ "ID", "Name", "Group" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::st_hero_basic_config), global::st_hero_basic_config.Parser, new[]{ "Datas" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::st_hero_basic_group_data), global::st_hero_basic_group_data.Parser, new[]{ "ID", "Name", "Group" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::st_hero_basic_group_config), global::st_hero_basic_group_config.Parser, new[]{ "Datas" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::st_main_menu_data), global::st_main_menu_data.Parser, new[]{ "ID", "Name", "Sort" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::st_main_menu_config), global::st_main_menu_config.Parser, new[]{ "Datas" }, null, null, null, null)
         }));
@@ -73,7 +78,7 @@ public sealed partial class st_hero_basic_data : pb::IMessage<st_hero_basic_data
   public st_hero_basic_data(st_hero_basic_data other) : this() {
     iD_ = other.iD_;
     name_ = other.name_;
-    sort_ = other.sort_;
+    group_ = other.group_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -104,14 +109,14 @@ public sealed partial class st_hero_basic_data : pb::IMessage<st_hero_basic_data
     }
   }
 
-  /// <summary>Field number for the "Sort" field.</summary>
-  public const int SortFieldNumber = 3;
-  private int sort_;
+  /// <summary>Field number for the "Group" field.</summary>
+  public const int GroupFieldNumber = 3;
+  private int group_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public int Sort {
-    get { return sort_; }
+  public int Group {
+    get { return group_; }
     set {
-      sort_ = value;
+      group_ = value;
     }
   }
 
@@ -130,7 +135,7 @@ public sealed partial class st_hero_basic_data : pb::IMessage<st_hero_basic_data
     }
     if (ID != other.ID) return false;
     if (Name != other.Name) return false;
-    if (Sort != other.Sort) return false;
+    if (Group != other.Group) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -139,7 +144,7 @@ public sealed partial class st_hero_basic_data : pb::IMessage<st_hero_basic_data
     int hash = 1;
     if (ID != 0) hash ^= ID.GetHashCode();
     if (Name.Length != 0) hash ^= Name.GetHashCode();
-    if (Sort != 0) hash ^= Sort.GetHashCode();
+    if (Group != 0) hash ^= Group.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -164,9 +169,9 @@ public sealed partial class st_hero_basic_data : pb::IMessage<st_hero_basic_data
       output.WriteRawTag(18);
       output.WriteString(Name);
     }
-    if (Sort != 0) {
+    if (Group != 0) {
       output.WriteRawTag(24);
-      output.WriteSInt32(Sort);
+      output.WriteSInt32(Group);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
@@ -185,9 +190,9 @@ public sealed partial class st_hero_basic_data : pb::IMessage<st_hero_basic_data
       output.WriteRawTag(18);
       output.WriteString(Name);
     }
-    if (Sort != 0) {
+    if (Group != 0) {
       output.WriteRawTag(24);
-      output.WriteSInt32(Sort);
+      output.WriteSInt32(Group);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
@@ -204,8 +209,8 @@ public sealed partial class st_hero_basic_data : pb::IMessage<st_hero_basic_data
     if (Name.Length != 0) {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
     }
-    if (Sort != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeSInt32Size(Sort);
+    if (Group != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeSInt32Size(Group);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -224,8 +229,8 @@ public sealed partial class st_hero_basic_data : pb::IMessage<st_hero_basic_data
     if (other.Name.Length != 0) {
       Name = other.Name;
     }
-    if (other.Sort != 0) {
-      Sort = other.Sort;
+    if (other.Group != 0) {
+      Group = other.Group;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -250,7 +255,7 @@ public sealed partial class st_hero_basic_data : pb::IMessage<st_hero_basic_data
           break;
         }
         case 24: {
-          Sort = input.ReadSInt32();
+          Group = input.ReadSInt32();
           break;
         }
       }
@@ -276,7 +281,7 @@ public sealed partial class st_hero_basic_data : pb::IMessage<st_hero_basic_data
           break;
         }
         case 24: {
-          Sort = input.ReadSInt32();
+          Group = input.ReadSInt32();
           break;
         }
       }
@@ -447,6 +452,411 @@ public sealed partial class st_hero_basic_config : pb::IMessage<st_hero_basic_co
 
 }
 
+public sealed partial class st_hero_basic_group_data : pb::IMessage<st_hero_basic_group_data>
+#if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    , pb::IBufferMessage
+#endif
+{
+  private static readonly pb::MessageParser<st_hero_basic_group_data> _parser = new pb::MessageParser<st_hero_basic_group_data>(() => new st_hero_basic_group_data());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<st_hero_basic_group_data> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::ClientDataReflection.Descriptor.MessageTypes[2]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public st_hero_basic_group_data() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public st_hero_basic_group_data(st_hero_basic_group_data other) : this() {
+    iD_ = other.iD_;
+    name_ = other.name_;
+    group_ = other.group_;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public st_hero_basic_group_data Clone() {
+    return new st_hero_basic_group_data(this);
+  }
+
+  /// <summary>Field number for the "ID" field.</summary>
+  public const int IDFieldNumber = 1;
+  private int iD_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int ID {
+    get { return iD_; }
+    set {
+      iD_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "Name" field.</summary>
+  public const int NameFieldNumber = 2;
+  private string name_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string Name {
+    get { return name_; }
+    set {
+      name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  /// <summary>Field number for the "Group" field.</summary>
+  public const int GroupFieldNumber = 3;
+  private int group_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int Group {
+    get { return group_; }
+    set {
+      group_ = value;
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as st_hero_basic_group_data);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(st_hero_basic_group_data other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if (ID != other.ID) return false;
+    if (Name != other.Name) return false;
+    if (Group != other.Group) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (ID != 0) hash ^= ID.GetHashCode();
+    if (Name.Length != 0) hash ^= Name.GetHashCode();
+    if (Group != 0) hash ^= Group.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    output.WriteRawMessage(this);
+  #else
+    if (ID != 0) {
+      output.WriteRawTag(8);
+      output.WriteSInt32(ID);
+    }
+    if (Name.Length != 0) {
+      output.WriteRawTag(18);
+      output.WriteString(Name);
+    }
+    if (Group != 0) {
+      output.WriteRawTag(24);
+      output.WriteSInt32(Group);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+    if (ID != 0) {
+      output.WriteRawTag(8);
+      output.WriteSInt32(ID);
+    }
+    if (Name.Length != 0) {
+      output.WriteRawTag(18);
+      output.WriteString(Name);
+    }
+    if (Group != 0) {
+      output.WriteRawTag(24);
+      output.WriteSInt32(Group);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(ref output);
+    }
+  }
+  #endif
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (ID != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeSInt32Size(ID);
+    }
+    if (Name.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+    }
+    if (Group != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeSInt32Size(Group);
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(st_hero_basic_group_data other) {
+    if (other == null) {
+      return;
+    }
+    if (other.ID != 0) {
+      ID = other.ID;
+    }
+    if (other.Name.Length != 0) {
+      Name = other.Name;
+    }
+    if (other.Group != 0) {
+      Group = other.Group;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    input.ReadRawMessage(this);
+  #else
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 8: {
+          ID = input.ReadSInt32();
+          break;
+        }
+        case 18: {
+          Name = input.ReadString();
+          break;
+        }
+        case 24: {
+          Group = input.ReadSInt32();
+          break;
+        }
+      }
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+          break;
+        case 8: {
+          ID = input.ReadSInt32();
+          break;
+        }
+        case 18: {
+          Name = input.ReadString();
+          break;
+        }
+        case 24: {
+          Group = input.ReadSInt32();
+          break;
+        }
+      }
+    }
+  }
+  #endif
+
+}
+
+public sealed partial class st_hero_basic_group_config : pb::IMessage<st_hero_basic_group_config>
+#if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    , pb::IBufferMessage
+#endif
+{
+  private static readonly pb::MessageParser<st_hero_basic_group_config> _parser = new pb::MessageParser<st_hero_basic_group_config>(() => new st_hero_basic_group_config());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<st_hero_basic_group_config> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::ClientDataReflection.Descriptor.MessageTypes[3]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public st_hero_basic_group_config() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public st_hero_basic_group_config(st_hero_basic_group_config other) : this() {
+    datas_ = other.datas_.Clone();
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public st_hero_basic_group_config Clone() {
+    return new st_hero_basic_group_config(this);
+  }
+
+  /// <summary>Field number for the "datas" field.</summary>
+  public const int DatasFieldNumber = 1;
+  private static readonly pb::FieldCodec<global::st_hero_basic_group_data> _repeated_datas_codec
+      = pb::FieldCodec.ForMessage(10, global::st_hero_basic_group_data.Parser);
+  private readonly pbc::RepeatedField<global::st_hero_basic_group_data> datas_ = new pbc::RepeatedField<global::st_hero_basic_group_data>();
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pbc::RepeatedField<global::st_hero_basic_group_data> Datas {
+    get { return datas_; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as st_hero_basic_group_config);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(st_hero_basic_group_config other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if(!datas_.Equals(other.datas_)) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    hash ^= datas_.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    output.WriteRawMessage(this);
+  #else
+    datas_.WriteTo(output, _repeated_datas_codec);
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+    datas_.WriteTo(ref output, _repeated_datas_codec);
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(ref output);
+    }
+  }
+  #endif
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    size += datas_.CalculateSize(_repeated_datas_codec);
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(st_hero_basic_group_config other) {
+    if (other == null) {
+      return;
+    }
+    datas_.Add(other.datas_);
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    input.ReadRawMessage(this);
+  #else
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 10: {
+          datas_.AddEntriesFrom(input, _repeated_datas_codec);
+          break;
+        }
+      }
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+          break;
+        case 10: {
+          datas_.AddEntriesFrom(ref input, _repeated_datas_codec);
+          break;
+        }
+      }
+    }
+  }
+  #endif
+
+}
+
 public sealed partial class st_main_menu_data : pb::IMessage<st_main_menu_data>
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     , pb::IBufferMessage
@@ -459,7 +869,7 @@ public sealed partial class st_main_menu_data : pb::IMessage<st_main_menu_data>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ClientDataReflection.Descriptor.MessageTypes[2]; }
+    get { return global::ClientDataReflection.Descriptor.MessageTypes[4]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -703,7 +1113,7 @@ public sealed partial class st_main_menu_config : pb::IMessage<st_main_menu_conf
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ClientDataReflection.Descriptor.MessageTypes[3]; }
+    get { return global::ClientDataReflection.Descriptor.MessageTypes[5]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
