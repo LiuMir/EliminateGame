@@ -13,6 +13,8 @@ public interface IMono
 
 public class BaseUI : IMono
 {
+    protected UIEventMgr UIEventMgr = new UIEventMgr();
+
     public UIView viewMono;
 
     public virtual void Awake(){}
