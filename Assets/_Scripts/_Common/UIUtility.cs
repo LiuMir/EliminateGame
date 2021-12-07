@@ -18,4 +18,20 @@ public class UIUtility
         }
         toggleGroup.allowSwitchOff = isAllowSwitchOff;
     }
+
+    public static void SetUIEntry(GameObject gameObject, int index)
+    {
+        UIEntry entry = gameObject.GetComponent<UIEntry>();
+        if (null == entry)
+        {
+            entry = gameObject.AddComponent<UIEntry>();
+        }
+        entry.index = index;
+    }
+
+    public static int GetUIEntry(GameObject gameObject)
+    {
+        UIEntry entry = gameObject.GetComponent<UIEntry>();
+        return entry ? entry.index : 0;
+    }
 }

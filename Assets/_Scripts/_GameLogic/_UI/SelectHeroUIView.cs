@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class SelectHeroUIView : BaseUI
@@ -6,13 +7,29 @@ public class SelectHeroUIView : BaseUI
     private Button btnClose;
     private NodeHelper rootNodeHelper;
     private CustomInstanceGameObject markBookNode;
+    private CustomInstanceGameObject heroListContent;
     private st_hero_basic_group_config groupConfig;
+    private List<st_hero_basic_data> curShowHeroDatas;
     public override void Awake()
     {
         base.Awake();
         rootNodeHelper = viewMono.GetComponent<NodeHelper>();
         btnClose = rootNodeHelper.GetNode("rd_BtnClose").GetComponent<Button>();
         markBookNode = rootNodeHelper.GetNode("rd_BookmarkList").GetComponent<CustomInstanceGameObject>();
+        heroListContent = rootNodeHelper.GetNode("rd_Content").GetComponent<CustomInstanceGameObject>();
+
+
+        UIEventMgr.AddListener<Button>(rootNodeHelper.GetNode("rd_BtnClose"), "onClick", (btn) => { btn.onClick.AddListener(CloseSelf); });
+        UIEventMgr.AddListener<Button>(rootNodeHelper.GetNode("rd_BtnNext"), "onClick", (btn) => { btn.onClick.AddListener(NextStep); });
+        UIEventMgr.AddListener<CustomInstanceGameObject>(rootNodeHelper.GetNode("rd_BookmarkList"), "m_pCallback",
+        (customInstance) =>
+        {
+            customInstance.m_pCallback += DrawMarkBook;
+        });
+        UIEventMgr.AddListener<CustomInstanceGameObject>(rootNodeHelper.GetNode("rd_Content"), "m_pCallback", (customInstance) =>
+        {
+            customInstance.m_pCallback += DrawHeroCellInfo;
+        });
     }
 
     public override void Show(BaseArgs Args = null)
@@ -27,12 +44,6 @@ public class SelectHeroUIView : BaseUI
     public override void OnEnable()
     {
         base.OnEnable();
-        UIEventMgr.AddListener<Button>(rootNodeHelper.GetNode("rd_BtnClose"), "onClick", (btn) => { btn.onClick.AddListener(CloseSelf); });
-        UIEventMgr.AddListener<CustomInstanceGameObject>(rootNodeHelper.GetNode("rd_BookmarkList"), "m_pCallback", 
-        (customInstance) =>
-        {
-            customInstance.m_pCallback += DrawMarkBook;
-        });
     }
 
     public override void OnDisable()
@@ -43,6 +54,11 @@ public class SelectHeroUIView : BaseUI
     private void CloseSelf()
     {
         UIMgr.Instance.OnCloseUI(viewMono);
+    }
+
+    private void NextStep()
+    {
+        Debug.LogError("NextStep");
     }
 
     private void DrawMarkBook(GameObject gameObject, int index)
@@ -66,7 +82,39 @@ public class SelectHeroUIView : BaseUI
         if (isOn)
         {
             st_hero_basic_group_data data = groupConfig.Datas[index];
-            Debug.LogError(data.Name);
+            curShowHeroDatas = HeroBasic.Instance.GetDatasByGroup(data.Group);
+            if (null != curShowHeroDatas)
+            {
+                UIUtility.SetAllToggleOff(heroListContent.GetComponent<ToggleGroup>());
+                heroListContent.ITEM_MAX_COUNT = curShowHeroDatas.Count;
+                heroListContent.Go();
+            }
+        }
+    }
+
+    private void DrawHeroCellInfo(GameObject gameObject, int index)
+    {
+        UIUtility.SetUIEntry(gameObject, index);
+        st_hero_basic_data data = curShowHeroDatas[index];
+        NodeHelper nodeHelper = gameObject.GetComponent<NodeHelper>();
+        nodeHelper.GetNode("rd_txtName").GetComponent<Text>().text = data.Name;
+
+        UIEventMgr.AddListener<Toggle>(gameObject, "onValueChanged", (tgl) =>
+        {
+            tgl.onValueChanged.AddListener((isOn) =>
+            {
+                ClickHeroCell(isOn, tgl);
+            });
+        });
+    }
+
+    private void ClickHeroCell(bool isOn, Toggle tgl)
+    {
+        if (isOn)
+        {
+            int index = UIUtility.GetUIEntry(tgl.gameObject);
+            st_hero_basic_data data = curShowHeroDatas[index];
+            Debug.LogError(data.Name + " :: " + index);
         }
     }
 

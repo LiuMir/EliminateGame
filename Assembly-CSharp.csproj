@@ -110,6 +110,7 @@
     <Compile Include="Assets\_Scripts\_Common\SerializableDictionary.cs" />
     <Compile Include="Assets\_Scripts\_Common\StaticSceneObj.cs" />
     <Compile Include="Assets\_Scripts\_Common\TransformPosMark.cs" />
+    <Compile Include="Assets\_Scripts\_Common\UIEntry.cs" />
     <Compile Include="Assets\_Scripts\_Common\UIUtility.cs" />
     <Compile Include="Assets\_Scripts\_GameConfig\MainMenuData.cs" />
     <Compile Include="Assets\_Scripts\_GameLogic\_UI\MainUIView.cs" />
