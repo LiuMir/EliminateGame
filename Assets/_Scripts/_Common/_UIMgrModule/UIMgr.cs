@@ -12,6 +12,8 @@ public class UIMgr:Singleton<UIMgr>
     private GameObject poolRootTransform;
     private int count = 1;
 
+    public Camera UICamera { get; set; }
+
     public void SetPoolRoot(GameObject poolRoot)
     {
         poolRootTransform = poolRoot;

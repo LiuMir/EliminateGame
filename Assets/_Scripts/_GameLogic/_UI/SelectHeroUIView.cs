@@ -58,7 +58,7 @@ public class SelectHeroUIView : BaseUI
 
     private void NextStep()
     {
-        Debug.LogError("NextStep");
+        UIMgr.Instance.OnShowUI("GameActing");
     }
 
     private void DrawMarkBook(GameObject gameObject, int index)
@@ -114,7 +114,6 @@ public class SelectHeroUIView : BaseUI
         {
             int index = UIUtility.GetUIEntry(tgl.gameObject);
             st_hero_basic_data data = curShowHeroDatas[index];
-            Debug.LogError(data.Name + " :: " + index);
         }
     }
 

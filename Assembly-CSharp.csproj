@@ -105,7 +105,9 @@
     <Compile Include="Assets\_Scripts\_Common\AutoCanvasScaler.cs" />
     <Compile Include="Assets\_Scripts\_Common\CommonConfig.cs" />
     <Compile Include="Assets\_Scripts\_Common\CustomInstanceGameObject.cs" />
+    <Compile Include="Assets\_Scripts\_Common\CustomJoystick.cs" />
     <Compile Include="Assets\_Scripts\_Common\DataReadBase.cs" />
+    <Compile Include="Assets\_Scripts\_Common\Empty4Raycast.cs" />
     <Compile Include="Assets\_Scripts\_Common\NodeHelper.cs" />
     <Compile Include="Assets\_Scripts\_Common\SerializableDictionary.cs" />
     <Compile Include="Assets\_Scripts\_Common\StaticSceneObj.cs" />
@@ -113,6 +115,7 @@
     <Compile Include="Assets\_Scripts\_Common\UIEntry.cs" />
     <Compile Include="Assets\_Scripts\_Common\UIUtility.cs" />
     <Compile Include="Assets\_Scripts\_GameConfig\MainMenuData.cs" />
+    <Compile Include="Assets\_Scripts\_GameLogic\_UI\GameActingView.cs" />
     <Compile Include="Assets\_Scripts\_GameLogic\_UI\MainUIView.cs" />
     <Compile Include="Assets\_Scripts\_GameLogic\_UI\SelectHeroUIView.cs" />
     <Compile Include="Assets\_Scripts\_GameLogic\FingerGestureMgr.cs" />

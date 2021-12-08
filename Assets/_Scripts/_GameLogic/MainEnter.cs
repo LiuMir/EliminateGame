@@ -7,6 +7,7 @@ public class MainEnter : MonoBehaviour
     private GameObject UIRoot;
     private GameObject WindowUIRoot;
     private GameObject PoolUIRoot;
+    public  Camera UICamera;
     private void Awake()
     {
         Init();
@@ -17,6 +18,7 @@ public class MainEnter : MonoBehaviour
         UIRoot = GameObject.Find("UIRoot");
         WindowUIRoot = UIRoot.transform.Find("MainUICanvas").gameObject;
         PoolUIRoot = UIRoot.transform.Find("UIPoolRoot").gameObject;
+        UIMgr.Instance.UICamera = UICamera;
         UIMgr.Instance.SetPoolRoot(PoolUIRoot);
         UIMgr.Instance.AddCreateUIMethod(UIWindowLayer.WindowLayer, new UIWindowLayerContent(WindowUIRoot));
         UIMgr.Instance.AddCreateUIMethod(UIWindowLayer.PopLayer, new UIPopLayerContent());

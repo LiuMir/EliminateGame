@@ -923,3 +923,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a148a1a4e62290448ae35d71ec16037b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UICamera: {fileID: 519420031}
