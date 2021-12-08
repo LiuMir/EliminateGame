@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 
 public enum EJoystickType
 {
@@ -18,6 +19,8 @@ public class CustomJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler, 
     public Camera _camera;
 
     public float MoveThreshold;
+
+    public static event Action<Vector2> UpdateJoystickPos;
 
     private float deadZone = 0;
     public float DeadZone
@@ -73,6 +76,7 @@ public class CustomJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler, 
         input = (eventData.position - position) / (radius * canvas.scaleFactor);//将屏幕中的触点和background的距离映射到ui空间下实际的距离
         HandleInput(input.magnitude, input.normalized, radius, _camera);        //对输入进行限制
         handle.anchoredPosition = input * radius;                              //实时计算handle的位置
+        UpdateJoystickPos?.Invoke(input);
     }
 
     public void OnPointerUp(PointerEventData eventData)

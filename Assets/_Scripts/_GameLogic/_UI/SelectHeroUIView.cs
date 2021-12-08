@@ -58,6 +58,7 @@ public class SelectHeroUIView : BaseUI
 
     private void NextStep()
     {
+        CloseSelf();
         UIMgr.Instance.OnShowUI("GameActing");
     }
 
