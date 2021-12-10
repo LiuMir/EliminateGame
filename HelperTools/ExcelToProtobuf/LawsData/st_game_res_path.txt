@@ -1,0 +1,1 @@
+{ "datas": [ { "ID": 1, "Path": "_Res/_Prefabs/BattleScene", "Type": 1 }, { "ID": 2, "Path": "_Res/_Prefabs/Player", "Type": 1 } ] }

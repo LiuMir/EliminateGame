@@ -1,6 +1,24 @@
 syntax = "proto3"; 
 option optimize_for = LITE_RUNTIME;
 
+message st_battle_scene_data {
+	sint32	ID	=	1;
+	string	Path	=	2;
+	string	Name	=	3;
+}
+
+message st_battle_scene_config {
+	repeated st_battle_scene_data datas = 1;
+}
+message st_game_res_path_data {
+	sint32	ID	=	1;
+	string	Path	=	2;
+	sint32	Type	=	3;
+}
+
+message st_game_res_path_config {
+	repeated st_game_res_path_data datas = 1;
+}
 message st_hero_basic_data {
 	sint32	ID	=	1;
 	string	Name	=	2;

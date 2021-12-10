@@ -35,7 +35,7 @@ public class SelectHeroUIView : BaseUI
     public override void Show(BaseArgs Args = null)
     {
         base.Show(Args);
-        groupConfig = HeroBasicGroup.Instance.GetAllData();
+        groupConfig = HeroBasicGroupData.Instance.GetAllData();
         UIUtility.SetAllToggleOff(markBookNode.GetComponent<ToggleGroup>());
         markBookNode.ITEM_MAX_COUNT = groupConfig.Datas.Count;
         markBookNode.Go();
@@ -60,6 +60,7 @@ public class SelectHeroUIView : BaseUI
     {
         CloseSelf();
         UIMgr.Instance.OnShowUI("GameActing");
+        BattleSceneMgr.Instance.CreateBattleSceneById(1);// TODO 先简单的加载一个
     }
 
     private void DrawMarkBook(GameObject gameObject, int index)
@@ -83,7 +84,7 @@ public class SelectHeroUIView : BaseUI
         if (isOn)
         {
             st_hero_basic_group_data data = groupConfig.Datas[index];
-            curShowHeroDatas = HeroBasic.Instance.GetDatasByGroup(data.Group);
+            curShowHeroDatas = HeroBasicData.Instance.GetDatasByGroup(data.Group);
             if (null != curShowHeroDatas)
             {
                 UIUtility.SetAllToggleOff(heroListContent.GetComponent<ToggleGroup>());

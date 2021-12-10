@@ -28,6 +28,7 @@ public class GameActingView:BaseUI
     private void CloseSelf()
     {
         UIMgr.Instance.OnCloseUI(viewMono);
+        BattleSceneMgr.Instance.RemoveBattleScene();
     }
 
     // 自动攻击
