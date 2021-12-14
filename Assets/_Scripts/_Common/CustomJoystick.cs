@@ -11,15 +11,16 @@ public enum EJoystickType
 
 public class CustomJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
+    private RectTransform baseRect = null;
+    private Canvas canvas;
+    private bool isTouching = false;
+    private Vector2 radius;
+
     public EJoystickType joystickType = EJoystickType.Fixed;
     public RectTransform background = null;
     public RectTransform handle = null;
-    private RectTransform baseRect = null;
-    private Canvas canvas;
     public Camera _camera;
-
     public float MoveThreshold;
-
     public static event Action<Vector2> UpdateJoystickPos;
 
     private float deadZone = 0;
@@ -45,6 +46,7 @@ public class CustomJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler, 
         handle.pivot = center;
         handle.anchoredPosition = Vector2.zero;
         fixedPosition = background.anchoredPosition;
+        radius = background.sizeDelta * 0.5f;
         SetMode();
     }
 
@@ -61,6 +63,7 @@ public class CustomJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler, 
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        isTouching = true;
         if (joystickType != EJoystickType.Fixed)
         {
             background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
@@ -72,7 +75,6 @@ public class CustomJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler, 
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 position = _camera.WorldToScreenPoint(background.position);//将ui坐标中的background映射到屏幕中的实际坐标
-        Vector2 radius = background.sizeDelta / 2;
         input = (eventData.position - position) / (radius * canvas.scaleFactor);//将屏幕中的触点和background的距离映射到ui空间下实际的距离
         HandleInput(input.magnitude, input.normalized, radius, _camera);        //对输入进行限制
         handle.anchoredPosition = input * radius;                              //实时计算handle的位置
@@ -81,10 +83,19 @@ public class CustomJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler, 
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        isTouching = false;
         if (joystickType != EJoystickType.Fixed)
             background.gameObject.SetActive(false);
         input = Vector2.zero;
         handle.anchoredPosition = Vector2.zero;
+    }
+
+    private void Update()
+    {
+        if (isTouching && input.magnitude >= 0.5f)
+        {
+            UpdateJoystickPos?.Invoke(input);
+        }
     }
 
     public void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)

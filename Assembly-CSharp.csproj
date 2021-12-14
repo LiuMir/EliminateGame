@@ -116,6 +116,7 @@
     <Compile Include="Assets\_Scripts\_Common\UIUtility.cs" />
     <Compile Include="Assets\_Scripts\_GameConfig\MainMenuData.cs" />
     <Compile Include="Assets\_Scripts\_GameLogic\_Scene\BattleSceneMgr.cs" />
+    <Compile Include="Assets\_Scripts\_GameLogic\_Scene\HeroObjectMgr.cs" />
     <Compile Include="Assets\_Scripts\_GameLogic\_UI\GameActingView.cs" />
     <Compile Include="Assets\_Scripts\_GameLogic\_UI\MainUIView.cs" />
     <Compile Include="Assets\_Scripts\_GameLogic\_UI\SelectHeroUIView.cs" />

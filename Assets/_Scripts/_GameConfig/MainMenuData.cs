@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 
 // 主菜单配置表
 public class MainMenuData : DataReadBase<st_main_menu_config, MainMenuData>
@@ -72,5 +73,43 @@ public class BattleSceneData : DataReadBase<st_battle_scene_config, BattleSceneD
     public override string GetFilPath()
     {
         return @"E:\UnityDemo\EliminateGame\Assets\_Res\_Config\st_battle_scene.bytes";
+    }
+}
+
+// 游戏资源路径配置
+public class GameResPathData: DataReadBase<st_game_res_path_config, GameResPathData>
+{
+    private string[] resFileExtension = {".prefab" };
+    private StringBuilder stringBuilder = new StringBuilder();
+
+    private readonly Dictionary<int, st_game_res_path_data> allDatas = new Dictionary<int, st_game_res_path_data>();
+
+    public st_game_res_path_data GetDataByID(int id)
+    {
+        if (allDatas.Count <= 0)
+        {
+            foreach (var item in this.GetAllData().Datas)
+            {
+                if (!allDatas.ContainsKey(item.ID))
+                {
+                    allDatas.Add(item.ID, item);
+                }
+            }
+        }
+        allDatas.TryGetValue(id, out st_game_res_path_data data);
+        return data;
+    }
+
+    public string GetPathByID(int id)
+    {
+        st_game_res_path_data data = GetDataByID(id);
+        stringBuilder.Clear();
+        stringBuilder.AppendFormat("Assets/{0}{1}", data.Path, resFileExtension[data.Type - 1]);
+        return stringBuilder.ToString();
+    }
+
+    public override string GetFilPath()
+    {
+        return @"E:\UnityDemo\EliminateGame\Assets\_Res\_Config\st_game_res_path.bytes";
     }
 }
