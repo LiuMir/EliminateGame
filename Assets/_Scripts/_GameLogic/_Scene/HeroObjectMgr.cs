@@ -8,6 +8,7 @@ public  class HeroObject
 {
     public GameObject HeroModel;
     private bool beCtrled = false; // 是否被摇杆控制
+    private Vector3 direVec;
 
     public HeroObject()
     {
@@ -23,9 +24,12 @@ public  class HeroObject
     {
         if (beCtrled)
         {
-            Quaternion q = Quaternion.LookRotation(new Vector3(joystickPos.x, 0, joystickPos.y));
+            direVec.x = joystickPos.x;
+            direVec.y = 0;
+            direVec.z = joystickPos.y;
+            Quaternion q = Quaternion.LookRotation(direVec.normalized);
             HeroModel.transform.rotation = q;
-            HeroModel.transform.Translate(Vector3.forward * 150f * Time.deltaTime);
+            HeroModel.transform.Translate(direVec.normalized * 150f * Time.deltaTime, Space.World);
         }
     }
 }
