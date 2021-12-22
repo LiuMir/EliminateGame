@@ -61,8 +61,8 @@ public class SelectHeroUIView : BaseUI
         CloseSelf();
         UIMgr.Instance.OnShowUI("GameActing");
         BattleSceneMgr.Instance.CreateBattleSceneById(1);// TODO 先简单的加载一个
-        HeroObjectMgr.Instance.Add(new HeroObject());
-        HeroObjectMgr.Instance.CreateAllHeroObjects();
+        RoleObjectMgr.Instance.Add(new RoleObject());
+        RoleObjectMgr.Instance.CreateAllRoleObjects();
     }
 
     private void DrawMarkBook(GameObject gameObject, int index)

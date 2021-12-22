@@ -95,6 +95,8 @@
     <Compile Include="Assets\_3rd\_FingerGesture\FingerGestures\Scripts\Toolbox\TBPinchToScale.cs" />
     <Compile Include="Assets\_3rd\_FingerGesture\FingerGestures\Scripts\Toolbox\TBQuickSetup.cs" />
     <Compile Include="Assets\_3rd\_FingerGesture\FingerGestures\Scripts\Toolbox\TBTwistToRotate.cs" />
+    <Compile Include="Assets\_Scripts\_Common\_EventNotification\EventCode.cs" />
+    <Compile Include="Assets\_Scripts\_Common\_EventNotification\NotificationMgr.cs" />
     <Compile Include="Assets\_Scripts\_Common\_Singleton\MonoSingle.cs" />
     <Compile Include="Assets\_Scripts\_Common\_Singleton\Singleton.cs" />
     <Compile Include="Assets\_Scripts\_Common\_UIMgrModule\IShowView.cs" />
@@ -115,8 +117,10 @@
     <Compile Include="Assets\_Scripts\_Common\UIEntry.cs" />
     <Compile Include="Assets\_Scripts\_Common\UIUtility.cs" />
     <Compile Include="Assets\_Scripts\_GameConfig\MainMenuData.cs" />
+    <Compile Include="Assets\_Scripts\_GameLogic\_Role\RoleBaseState.cs" />
+    <Compile Include="Assets\_Scripts\_GameLogic\_Role\RoleFSMMgr.cs" />
+    <Compile Include="Assets\_Scripts\_GameLogic\_Role\RoleObjectMgr.cs" />
     <Compile Include="Assets\_Scripts\_GameLogic\_Scene\BattleSceneMgr.cs" />
-    <Compile Include="Assets\_Scripts\_GameLogic\_Scene\HeroObjectMgr.cs" />
     <Compile Include="Assets\_Scripts\_GameLogic\_UI\GameActingView.cs" />
     <Compile Include="Assets\_Scripts\_GameLogic\_UI\MainUIView.cs" />
     <Compile Include="Assets\_Scripts\_GameLogic\_UI\SelectHeroUIView.cs" />

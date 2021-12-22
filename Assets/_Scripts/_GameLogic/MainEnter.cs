@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class MainEnter : MonoBehaviour
@@ -8,6 +7,8 @@ public class MainEnter : MonoBehaviour
     private GameObject WindowUIRoot;
     private GameObject PoolUIRoot;
     public  Camera UICamera;
+    public static event Action UpdateEvent;
+
     private void Awake()
     {
         Init();
@@ -27,6 +28,11 @@ public class MainEnter : MonoBehaviour
     private void Start()
     {
         UIMgr.Instance.OnShowUI("MainUI");
+    }
+
+    private void Update()
+    {
+        UpdateEvent?.Invoke();
     }
 
 }

@@ -30,6 +30,7 @@ public class BattleSceneMgr:Singleton<BattleSceneMgr>
         {
             Object.Destroy(battleScene);
         }
+        RoleObjectMgr.Instance.ClearAllRoleObjects();
     }
 
     private string GetPath(string configPath)

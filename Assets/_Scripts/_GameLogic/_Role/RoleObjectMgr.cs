@@ -4,20 +4,35 @@ using UnityEngine;
 
 //游戏中的英雄对象
 // 包含英雄数据、英雄模型、英雄FSM
-public  class HeroObject
+public  class RoleObject
 {
     public GameObject HeroModel;
+    public RoleFSMMgr RoleFSMMgr;
     private bool beCtrled = false; // 是否被摇杆控制
     private Vector3 direVec;
 
-    public HeroObject()
+    public RoleObject()
     {
+        RoleFSMMgr = new RoleFSMMgr(RoleStateID.RoleAIStateID);
         CustomJoystick.UpdateJoystickPos += JoystickCtrlModelPos;
     }
 
     public void SetBeCtrledStatus(bool isCtrled)
     {
         beCtrled = isCtrled;
+        if (isCtrled)
+        {
+            RoleFSMMgr.ChangeRoleState(RoleStateID.RoleControlledStateID);
+        }
+    }
+
+    public void Destory()
+    {
+        RoleFSMMgr.Destory();
+        RoleFSMMgr = null;
+        CustomJoystick.UpdateJoystickPos -= JoystickCtrlModelPos;
+        Object.Destroy(HeroModel);
+        HeroModel = null;
     }
 
     private void JoystickCtrlModelPos(Vector2 joystickPos)
@@ -37,20 +52,20 @@ public  class HeroObject
 /// <summary>
 /// 游戏中英雄对象管理类 负责英雄对象的增(创建)、删(销毁)、获取
 /// </summary>
-public class HeroObjectMgr:Singleton<HeroObjectMgr>
+public class RoleObjectMgr:Singleton<RoleObjectMgr>
 {
-    private List<HeroObject> allHeroObjects = new List<HeroObject>(); // TODO 暂时先用list 后续采用dic<唯一ID,HeroObject>
+    private List<RoleObject> allRoleObjects = new List<RoleObject>(); // TODO 暂时先用list 后续采用dic<唯一ID,HeroObject>
 
-    public void Add(HeroObject heroObject)
+    public void Add(RoleObject heroObject)
     {
-        allHeroObjects.Add(heroObject);
+        allRoleObjects.Add(heroObject);
     }
 
-    public void CreateAllHeroObjects()
+    public void CreateAllRoleObjects()
     {
         GameObject templete = null;
         Vector3 spawnPos = Vector3.zero;
-        foreach (var item in allHeroObjects)
+        foreach (var item in allRoleObjects)
         {
             templete = AssetDatabase.LoadAssetAtPath<GameObject>(GameResPathData.Instance.GetPathByID(2));
             item.HeroModel = Object.Instantiate(templete);
@@ -58,6 +73,15 @@ public class HeroObjectMgr:Singleton<HeroObjectMgr>
             item.HeroModel.transform.position = spawnPos;
             item.SetBeCtrledStatus(true);
         }
+    }
+
+    public void ClearAllRoleObjects()
+    {
+        foreach (var item in allRoleObjects)
+        {
+            item.Destory();
+        }
+        allRoleObjects.Clear();
     }
 
 }
