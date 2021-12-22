@@ -6,7 +6,7 @@ using System.Collections.Generic;
 /// </summary>
 public class NotificationMgr:Singleton<NotificationMgr>
 {
-    private readonly Dictionary<EventCode, Delegate> eventList = new Dictionary<EventCode, Delegate>();
+    private readonly Dictionary<EventCode, Delegate> eventList = new Dictionary<EventCode, Delegate>(new EventCodeComparer());
 
     //注册消息前检测一下
     private void RegistCheck(EventCode eventCode, Delegate callBack)
